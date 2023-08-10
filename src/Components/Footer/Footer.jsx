@@ -2,8 +2,7 @@ import React from 'react'
 import "./Footer.css"
 const Footer = () => {
   return (
-    <div>
-      <footer>
+     <footer>
         <div className="row">
           <div className="column">
             <h4>About Us</h4>
@@ -28,8 +27,7 @@ const Footer = () => {
         </div>
         <p className="copyright">© 2023 All Rights Reserved</p>
       </footer>
-    </div>
-  )
+ )
 }
 
 export default Footer

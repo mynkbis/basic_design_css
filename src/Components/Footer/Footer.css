@@ -58,6 +58,7 @@ ul li a:hover {
 ul.social-icons {
   display: flex;
   column-gap: 0.625rem;
+  justify-content: center;
 }
 
 .social-icons i {

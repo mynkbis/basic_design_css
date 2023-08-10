@@ -1,18 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { FaAlignLeft} from 'react-icons/fa';
+import { toggleSidebar } from '../../features/userSlice';
 
 const Navbar = () => {
-  return (
+   const dispatch = useDispatch()
+   const { isSidebarOpen } = useSelector((store) => store.user);
+  return (<div>
     <Wrapper>
-     <span>=</span>
-      <Link className="hide-on-mobile" to="/">Home</Link>
-      <Link className="hide-on-mobile" to='/Aboutus'>AboutUs</Link>
-      <Link  className="hide-on-mobile" to='/contactus'>ContactUs</Link>
-          <Link className="hide-on-mobile" to='/Login'>Login</Link>
+      {isSidebarOpen && <button type='button' className='toggle-btn' onClick={() => dispatch(toggleSidebar())}>
+        <FaAlignLeft />
+      </button>}
+      {isSidebarOpen && <Link className="hide-on-mobile" to="/">Home</Link>}
+      {isSidebarOpen && <Link className="hide-on-mobile" to='/Aboutus'>AboutUs</Link>}
+      {isSidebarOpen && <Link className="hide-on-mobile" to='/contactus'>ContactUs</Link>}
+      { isSidebarOpen && <Link className="hide-on-mobile" to='/Login'>Login</Link>}
       <input type="text" className='search' placeholder='Search Here...'/>
       <button className='logout-btn'>Logout</button>
     </Wrapper>
+    </div>
   )
 }
 
@@ -28,6 +36,10 @@ flex: 1;
 justify-content:space-around;
 background: #ffcc5c;
 height:35px;
+width:100%;
+position: fixed;
+top:0%;
+
 
 // aligning button to left while done is increasing its size
 // .logout-btn{
@@ -49,6 +61,15 @@ height:35px;
      height:24px;
      width:70px;
    }
+  .toggle-btn {
+    background: transparent;
+    border-color: transparent;
+    font-size: 1.75rem;
+    color: var(--primary-500);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
 
 .logout-btn:hover{
   cursor:pointer;

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaAlignLeft} from 'react-icons/fa';
+import { FaAlignLeft } from 'react-icons/fa';
 import { toggleSidebar } from '../../features/userSlice';
 
 const Navbar = () => {
@@ -12,7 +12,8 @@ const Navbar = () => {
     <Wrapper>
       {isSidebarOpen && <button type='button' className='toggle-btn' onClick={() => dispatch(toggleSidebar())}>
         <FaAlignLeft />
-      </button>}
+      
+          </button>}
       {isSidebarOpen && <Link className="hide-on-mobile" to="/">Home</Link>}
       {isSidebarOpen && <Link className="hide-on-mobile" to='/Aboutus'>AboutUs</Link>}
       {isSidebarOpen && <Link className="hide-on-mobile" to='/contactus'>ContactUs</Link>}

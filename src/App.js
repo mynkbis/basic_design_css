@@ -1,11 +1,9 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home/Home';
 import Landing from './Pages/Landing/Landing';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import Footer from './Components/Footer/Footer';
-import Navbar from './Components/Navbar/Navbar';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import ProtectedRoutes from "./hoc/ProtectedRoutes"

@@ -75,11 +75,11 @@ ul.social-icons li a {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 100%;
-  background-color: #6faaff;
+  /* background-color: #6faaff; */
 }
 
 ul.social-icons li:hover a {
-  background-color: #6fdeff;
+  background-color: #ffa500c9;
 }
 
 .copyright {

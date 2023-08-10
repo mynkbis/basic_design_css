@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Footer.css"
+import { FaFacebookF, FaInstagram,FaTwitter,FaGithub } from 'react-icons/fa';
 const Footer = () => {
   return (
      <footer>
@@ -11,21 +12,21 @@ const Footer = () => {
           <div className="column">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">Subscription</a></li>
+              <li ><a href="#">Subscription</a></li>
               <li><a href="#">Contact us</a></li>
             </ul>
           </div>
           <div className="column">
             <h4>Connect with Us</h4>
             <ul className="social-icons">
-              <li><a href="#">Fb</a></li>
-              <li><a href="#">Is</a></li>
-              <li><a href="#">Tw</a></li>
-              <li><a href="#">Git</a></li>
+              <li><a href="#"><FaFacebookF/></a></li>
+              <li><a href="#"><FaInstagram/></a></li>
+              <li><a href="#"><FaTwitter/></a></li>
+              <li><a href="#"><FaGithub/></a></li>
             </ul>
           </div>
         </div>
-        <p className="copyright">© 2023 All Rights Reserved</p>
+        <p  style={{color:"blue"}} className="copyright">© 2023 All Rights Reserved</p>
       </footer>
  )
 }

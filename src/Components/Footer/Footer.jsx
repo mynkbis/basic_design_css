@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="row">
           <div className="column">
             <h4>About Us</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in metus euismod, faucibus mo eu enim dapibus suscipit.</p>
+            <p>We are the builders of future, who gives better choice to choose for brighter future</p>
           </div>
           <div className="column">
             <h4>Quick Links</h4>

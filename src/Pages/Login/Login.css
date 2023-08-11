@@ -14,9 +14,9 @@ body {
     position: absolute;
     border: 0;
     left: 53%;
-    top: 4%;
+    top: 3%;
     height: 55vh;
-    width: 36vw;
+    width: 28vw;
     border-radius: 4px;
     box-shadow: 3px 3px 1px orange
 }

@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 
 function ProtectedRoutes({ children }) {
   const { user, userRole } = useSelector((store) => store.user)
-  if (!user && userRole !== "Admin") {
+  if (!user) {
     return (<Navigate to='/' />)
   }
   return (

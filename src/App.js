@@ -9,20 +9,26 @@ import Register from './Pages/Register/Register';
 import ProtectedRoutes from "./hoc/ProtectedRoutes"
 import ShareLayout from './Pages/SharedLayout';
 import DashBoard from './Components/Dashboard/DashBoard';
+import Home from './Pages/Home/Home';
+import { useSelector } from 'react-redux';
 
 function App() {
+const { user } = useSelector((store) => store.user);
   return (
     <div className="App">
        <Routes>
-        {/* <Route path='/' element={<Home />} >Home</Route> */}
-          <Route path="/" element={<ProtectedRoutes><ShareLayout/></ProtectedRoutes>}>
-        <Route path='/' element={<Landing />} >Landing</Route>
-        <Route path='/Aboutus' element={<AboutUs />} >AboutUs</Route>
-        <Route path='/ContactUs' element={<ContactUs />} >ContactUs</Route>
-        <Route path='/login' element={<Login />} >Login</Route>
-          <Route path='/register' element={<Register />} >Register</Route>
-           <Route path='/dashboard' element={<DashBoard />} >Register</Route>
-          </Route>
+        {!user ?
+        <Route path="/" element={<ShareLayout />}>
+         <Route path='/' element={<Landing />} >Landing</Route>
+             <Route path='/Aboutus' element={<AboutUs />} >AboutUs</Route>
+            <Route path='/ContactUs' element={<ContactUs />} >ContactUs</Route>
+            <Route path='/login' element={<Login />} >Login</Route>
+            <Route path='/register' element={<Register />} >Register</Route>
+            </Route>:
+          <Route path="/" element={<ProtectedRoutes><ShareLayout /></ProtectedRoutes>}>
+            <Route path='/' element={<Home />} >Home</Route>
+            <Route path='/dashboard' element={<DashBoard />} ></Route>
+          </Route>}
       </Routes>
       <Footer/>
     </div>

@@ -1,25 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaAlignLeft } from 'react-icons/fa';
-import { toggleSidebar } from '../../features/userSlice';
+import { toggleSidebar,logOutUser } from '../../features/userSlice';
 
 const Navbar = () => {
    const dispatch = useDispatch()
-   const { isSidebarOpen } = useSelector((store) => store.user);
+  const { isSidebarOpen } = useSelector((store) => store.user);
+  const { user } = useSelector((store) => store.user);
+  const navigate = useNavigate()
+  
   return (<div>
     <Wrapper>
       {isSidebarOpen && <button type='button' className='toggle-btn' onClick={() => dispatch(toggleSidebar())}>
         <FaAlignLeft />
-      
-          </button>}
+        </button>}
       {isSidebarOpen && <Link className="hide-on-mobile" to="/">Home</Link>}
       {isSidebarOpen && <Link className="hide-on-mobile" to='/Aboutus'>AboutUs</Link>}
       {isSidebarOpen && <Link className="hide-on-mobile" to='/contactus'>ContactUs</Link>}
-      { isSidebarOpen && <Link className="hide-on-mobile" to='/Login'>Login</Link>}
+      { isSidebarOpen && !user && <Link className="hide-on-mobile" to='/Login'>Login</Link>}
       <input type="text" className='search' placeholder='Search Here...'/>
-      <button className='logout-btn'>Logout</button>
+      {user && <button className='logout-btn' onClick={() => { dispatch(logOutUser()); navigate("/") }}>Logout</button>}
     </Wrapper>
     </div>
   )
